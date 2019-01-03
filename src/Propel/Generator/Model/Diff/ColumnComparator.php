@@ -95,6 +95,11 @@ class ColumnComparator
             $changedProperties['autoIncrement'] = [ $fromColumn->isAutoIncrement(), $toColumn->isAutoIncrement() ];
         }
 
+        if ($fromColumn->getDescription() || $toColumn->getDescription()
+            && ($fromColumn->getDescription() !== $toColumn->getDescription()) ) {
+            $changedProperties['description'] = [ $fromColumn->getDescription(), $toColumn->getDescription() ];
+        }
+
         return $changedProperties;
     }
 }
