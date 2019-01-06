@@ -229,10 +229,10 @@ class MysqlSchemaParser extends AbstractSchemaParser
             $this->warn("Column [" . $table->getName() . "." . $name. "] has a column type (".$nativeType.") that Propel does not support.");
         }
 
-        // Special case for TINYINT(1) which is a BOOLEAN
-        if (PropelTypes::TINYINT === $propelType && 1 === $size) {
-            $propelType = PropelTypes::BOOLEAN;
-        }
+        // // Special case for TINYINT(1) which is a BOOLEAN
+        // if (PropelTypes::TINYINT === $propelType && 1 === $size) {
+        //     $propelType = PropelTypes::BOOLEAN;
+        // }
 
         $column = new Column($name);
         $column->setTable($table);
